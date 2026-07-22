@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brief UGC — Bloki</title>
+    <meta property="og:title" content="Brief UGC — Bloki x LA REAL">
+    <meta property="og:description" content="Estrategia de contenido UGC para el lanzamiento de Bloki">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #F5F0EB; --ink: #14201c; --muted: #6b7280;
+            --line: rgba(13,27,42,0.1); --green: #16a34a; --navy: #0D1B2A; --card: #ffffff;
+            --green-light: #dcfce7; --orange: #f59e0b; --orange-light: #fef3c7;
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+        .page { max-width: 900px; margin: 0 auto; padding: 64px 40px 80px; }
+
+        .doc-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 44px; }
+        .doc-head img.lareal { height: 32px; filter: brightness(0); opacity: 0.9; }
+        .doc-meta { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); text-align: right; }
+        .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+        h1 { font-size: 40px; font-weight: 900; letter-spacing: -1.6px; line-height: 1.1; margin-bottom: 18px; max-width: 720px; }
+        .lede { font-size: 18px; color: #374151; max-width: 680px; font-weight: 400; }
+        .highlight { color: var(--green); }
+
+        section { margin-top: 52px; }
+        h2 { font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+        h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 12px; margin-top: 28px; }
+        p { font-size: 16px; color: #374151; margin-bottom: 14px; }
+        p strong { color: var(--ink); font-weight: 700; }
+
+        ul { margin-left: 0; padding-left: 0; list-style: none; }
+        ul li { font-size: 16px; color: #374151; padding: 8px 0; padding-left: 28px; position: relative; }
+        ul li::before { content: ""; position: absolute; left: 0; top: 14px; width: 10px; height: 10px; background: var(--green); border-radius: 2px; }
+
+        .card { background: var(--card); border-radius: 12px; padding: 24px 28px; border: 1px solid var(--line); margin-bottom: 16px; }
+        .card-title { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+        .card-title .emoji { font-size: 24px; }
+        .card-subtitle { font-size: 14px; color: var(--muted); font-weight: 500; margin-bottom: 12px; }
+        .card-body { font-size: 15px; color: #374151; }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-right: 6px; margin-bottom: 6px; }
+        .tag-green { background: var(--green-light); color: var(--green); }
+        .tag-orange { background: var(--orange-light); color: #b45309; }
+        .tag-gray { background: #f3f4f6; color: #6b7280; }
+
+        .hook-box { background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%); border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+        .hook-text { font-size: 18px; font-weight: 700; color: #fff; font-style: italic; }
+        .hook-meta { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+        .persona-card { border-left: 4px solid var(--green); }
+        .angulo-card { border-left: 4px solid var(--orange); }
+
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+        th { background: var(--navy); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; padding: 14px 16px; text-align: left; }
+        td { padding: 14px 16px; border-bottom: 1px solid var(--line); color: #374151; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(22,163,74,0.03); }
+
+        .note { background: var(--green-light); border-left: 4px solid var(--green); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .note-title { font-size: 13px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .note-body { font-size: 15px; color: #166534; }
+
+        .warning { background: var(--orange-light); border-left: 4px solid var(--orange); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .warning-title { font-size: 13px; font-weight: 700; color: #b45309; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .warning-body { font-size: 15px; color: #92400e; }
+
+        .brief-card { background: var(--card); border: 2px solid var(--green); border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+        .brief-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+        .brief-number { font-size: 48px; font-weight: 900; color: var(--green); line-height: 1; }
+        .brief-title { font-size: 22px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+        .brief-persona { font-size: 14px; color: var(--muted); }
+        .brief-section { margin-top: 20px; }
+        .brief-section-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+        .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin: 24px 0; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 36px; font-weight: 900; color: var(--green); }
+        .stat-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .referente-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        .referente-title { font-size: 14px; font-weight: 700; color: #92400e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .referente-link { color: #b45309; font-weight: 600; }
+
+        .footer { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; }
+        .footer-logo { height: 40px; filter: brightness(0); opacity: 0.7; margin-bottom: 16px; }
+        .footer-text { font-size: 14px; color: var(--muted); }
+
+        @media (max-width: 640px) {
+            .page { padding: 40px 24px 60px; }
+            h1 { font-size: 28px; }
+            h2 { font-size: 12px; }
+            .brief-number { font-size: 36px; }
+            .brief-title { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="doc-head">
+            <img class="lareal" src="logo-la-real.png" alt="LA REAL">
+            <div class="doc-meta">BRIEF UGC · JULIO 2026</div>
+        </header>
+
+        <!-- Intro -->
+        <section>
+            <div class="eyebrow">Estrategia de Contenido UGC</div>
+            <h1>Brief de lanzamiento — <span class="highlight">Bloki</span></h1>
+            <p class="lede">Despliegue completo de contenido UGC para el lanzamiento de Bloki, tu guardián digital que protege los momentos que importan.</p>
+        </section>
+
+        <!-- Referente -->
+        <section>
+            <div class="referente-box">
+                <div class="referente-title">🎯 Referente principal</div>
+                <p><strong>Brick</strong> (<a href="https://getbrick.com" class="referente-link" target="_blank">getbrick.com</a>) — Dispositivo físico que bloquea apps mediante NFC. Tono inspiracional, enfocado en "recuperar tu tiempo", uso de estadísticas de bienestar (95% sienten menos distracción), testimonios de transformación real.</p>
+            </div>
+        </section>
+
+        <!-- El Producto -->
+        <section>
+            <h2>El Producto</h2>
+            <p><strong>Bloki</strong> es una app de bloqueo de aplicaciones con un concepto único: <strong>un pequeño guardián digital</strong> que protege tu atención. La estética está inspirada en art toys y juguetes coleccionables de vinilo — amigable, lúdico, no restrictivo.</p>
+
+            <div class="note">
+                <div class="note-title">Propuesta de valor central</div>
+                <div class="note-body">"Los momentos más importantes no necesitan más notificaciones. <strong>Necesitan más de ti.</strong>"</div>
+            </div>
+
+            <h3>Diferenciación vs competencia</h3>
+            <ul>
+                <li><strong>No es "una app que te bloquea el celular"</strong> — es un compañero que cuida tus momentos importantes</li>
+                <li>Personajes amigables tipo art toy (no restricción, sino protección)</li>
+                <li>Estética moderna, creativa, cultura pop</li>
+                <li>Enfoque en lo que ganas, no en lo que pierdes</li>
+            </ul>
+        </section>
+
+        <!-- Framework -->
+        <section>
+            <h2>Framework de Contenido</h2>
+            <p>Seguimos el framework de LA REAL de <strong>4 capas</strong> para creación de contenido estratégico:</p>
+
+            <div class="stat-row">
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Personas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Ángulos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Hooks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Formatos</div>
+                </div>
+            </div>
+
+            <p><strong>No se trata de crear videos por crear videos.</strong> Se trata de probar ángulos para entender qué funciona y escalar lo que gana.</p>
+        </section>
+
+        <!-- CAPA 1: Personas -->
+        <section>
+            <h2>Capa 1: Personas</h2>
+            <p>Los arquetipos de cliente a los que Bloki puede venderle. Cada persona tiene motivaciones y pain points diferentes.</p>
+
+            <div class="grid-2" style="margin-top: 24px;">
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">💼</span> El Profesional Abrumado</div>
+                    <div class="card-subtitle">Emprendedores, freelancers, remote workers</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> No puede enfocarse más de 10 minutos sin revisar el celular. Siente que su productividad está secuestrada.</p>
+                        <p><strong>Deseo:</strong> Sesiones de trabajo profundo sin distracciones. Entregar más en menos tiempo.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">25-45 años</span>
+                        <span class="tag tag-gray">Trabaja desde casa</span>
+                    </div>
+                </div>
+
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">📚</span> El Estudiante Distraído</div>
+                    <div class="card-subtitle">Universitarios, opositores, autodidactas</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> Empieza a estudiar y 20 minutos después está en TikTok. No puede mantener la concentración.</p>
+                        <p><strong>Deseo:</strong> Aprobar exámenes, aprender más rápido, no sentirse culpable por procrastinar.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">18-28 años</span>
+                        <span class="tag tag-gray">Alto consumo de redes</span>
+                    </div>
+                </div>
+
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">👨‍👩‍👧</span> El Padre/Madre Presente</div>
+                    <div class="card-subtitle">Padres jóvenes, parejas, familias</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> Está con sus hijos pero mentalmente en el celular. Se siente culpable por no estar "presente".</p>
+                        <p><strong>Deseo:</strong> Momentos de calidad real con su familia. Desconectar cuando importa.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">28-45 años</span>
+                        <span class="tag tag-gray">Hijos pequeños</span>
+                    </div>
+                </div>
+
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">🌙</span> El Insomne Digital</div>
+                    <div class="card-subtitle">Personas con problemas de sueño</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> Scroll infinito a las 2am. Se acuesta "temprano" pero el celular lo mantiene despierto.</p>
+                        <p><strong>Deseo:</strong> Dormir mejor, tener energía al día siguiente, romper el ciclo de scroll nocturno.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">Todas las edades</span>
+                        <span class="tag tag-gray">Screen time alto noche</span>
+                    </div>
+                </div>
+
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">🏃</span> El Atleta Mental</div>
+                    <div class="card-subtitle">Deportistas, fitness enthusiasts, biohackers</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> Optimiza todo menos su consumo digital. El celular es su punto débil.</p>
+                        <p><strong>Deseo:</strong> Disciplina digital como tiene disciplina física. Control total de su atención.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">22-40 años</span>
+                        <span class="tag tag-gray">Mindset de optimización</span>
+                    </div>
+                </div>
+
+                <div class="card persona-card">
+                    <div class="card-title"><span class="emoji">😰</span> El Ansioso del Scroll</div>
+                    <div class="card-subtitle">Personas con ansiedad por redes sociales</div>
+                    <div class="card-body">
+                        <p><strong>Pain:</strong> Sabe que el celular le hace daño pero no puede parar. Siente ansiedad cuando no lo tiene.</p>
+                        <p><strong>Deseo:</strong> Romper la adicción. Recuperar el control de su mente.</p>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <span class="tag tag-gray">18-35 años</span>
+                        <span class="tag tag-gray">+5h screen time/día</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPA 2: Ángulos -->
+        <section>
+            <h2>Capa 2: Ángulos de Venta</h2>
+            <p>El "por qué" detrás de la compra. Cada persona tiene múltiples razones para querer Bloki.</p>
+
+            <div class="warning">
+                <div class="warning-title">Insight clave</div>
+                <div class="warning-body">La gente no compra "una app de bloqueo". Compra la <strong>posibilidad de enfocarse, de estar presente, de dormir mejor</strong>. El producto es el vehículo, no el destino.</div>
+            </div>
+
+            <h3>Ángulos prioritarios para lanzamiento</h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ángulo</th>
+                            <th>Mensaje Central</th>
+                            <th>Personas</th>
+                            <th>Prioridad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>🎯 Productividad real</strong></td>
+                            <td>"2 horas de trabajo profundo valen más que 8 horas distraído"</td>
+                            <td>Profesional, Estudiante</td>
+                            <td><span class="tag tag-green">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>👨‍👩‍👧 Presencia familiar</strong></td>
+                            <td>"Tus hijos no van a recordar tus likes, van a recordar tu presencia"</td>
+                            <td>Padre/Madre</td>
+                            <td><span class="tag tag-green">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>😴 Sueño reparador</strong></td>
+                            <td>"Deja de scrollear tu sueño. Tu cama no es para TikTok"</td>
+                            <td>Insomne Digital</td>
+                            <td><span class="tag tag-green">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🧠 Control mental</strong></td>
+                            <td>"Tu atención es tu activo más valioso. Deja de regalarla"</td>
+                            <td>Atleta Mental, Ansioso</td>
+                            <td><span class="tag tag-orange">Media</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>⏱️ Tiempo recuperado</strong></td>
+                            <td>"¿Qué harías con 3 horas extra al día?"</td>
+                            <td>Todas</td>
+                            <td><span class="tag tag-orange">Media</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🆚 Anti-competencia</strong></td>
+                            <td>"Las otras apps de bloqueo te castigan. Bloki te cuida"</td>
+                            <td>Todas</td>
+                            <td><span class="tag tag-gray">Test</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🎮 Gamificación</strong></td>
+                            <td>"Colecciona a tu guardián mientras proteges tu enfoque"</td>
+                            <td>Estudiante, Atleta</td>
+                            <td><span class="tag tag-gray">Test</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CAPA 3: Hooks -->
+        <section>
+            <h2>Capa 3: Hooks</h2>
+            <p>Los primeros 3 segundos del video. Es el texto/frase con el que el creador abre el contenido. <strong>El hook es el 80% del éxito del video.</strong></p>
+
+            <h3>🎯 Ángulo: Productividad Real</h3>
+            <div class="hook-box">
+                <div class="hook-text">"Llevo 3 semanas usando esto y mi jefe cree que soy otra persona"</div>
+                <div class="hook-meta">Formato: UGC testimonial · Persona: Profesional</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"Si no puedes trabajar 2 horas sin revisar Instagram, esto es para ti"</div>
+                <div class="hook-meta">Formato: Talking head directo · Persona: Profesional/Estudiante</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"POV: Finalmente terminaste esa tarea que llevabas posponiendo 3 días"</div>
+                <div class="hook-meta">Formato: POV/Meme · Persona: Estudiante</div>
+            </div>
+
+            <h3>👨‍👩‍👧 Ángulo: Presencia Familiar</h3>
+            <div class="hook-box">
+                <div class="hook-text">"Mi hija me dijo 'papi, deja el celular' y me partió el corazón"</div>
+                <div class="hook-meta">Formato: UGC emocional · Persona: Padre/Madre</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"¿Cuándo fue la última vez que cenaste con tu familia sin tocar el celular?"</div>
+                <div class="hook-meta">Formato: Pregunta retadora · Persona: Padre/Madre</div>
+            </div>
+
+            <h3>😴 Ángulo: Sueño Reparador</h3>
+            <div class="hook-box">
+                <div class="hook-text">"Eran las 2am, estaba en TikTok, y me pregunté: ¿qué estoy haciendo con mi vida?"</div>
+                <div class="hook-meta">Formato: Storytime · Persona: Insomne Digital</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"Dejé de usar el celular 1 hora antes de dormir. Esto pasó en 7 días"</div>
+                <div class="hook-meta">Formato: Antes/Después · Persona: Insomne Digital</div>
+            </div>
+
+            <h3>🧠 Ángulo: Control Mental</h3>
+            <div class="hook-box">
+                <div class="hook-text">"Las apps de redes sociales gastan millones para hacerte adicto. Esto es tu defensa"</div>
+                <div class="hook-meta">Formato: Educativo/Confrontacional · Persona: Atleta Mental</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"Optimizo todo: sueño, comida, ejercicio. Mi punto débil era el celular. Ya no"</div>
+                <div class="hook-meta">Formato: UGC testimonial · Persona: Atleta Mental</div>
+            </div>
+
+            <h3>⏱️ Ángulo: Tiempo Recuperado</h3>
+            <div class="hook-box">
+                <div class="hook-text">"El promedio de una persona gasta 4 horas al día en el celular. Son 60 días al año"</div>
+                <div class="hook-meta">Formato: Dato impactante · Persona: Todas</div>
+            </div>
+            <div class="hook-box">
+                <div class="hook-text">"¿Qué pasaría si tuvieras 3 horas más cada día?"</div>
+                <div class="hook-meta">Formato: Pregunta aspiracional · Persona: Todas</div>
+            </div>
+        </section>
+
+        <!-- CAPA 4: Formatos -->
+        <section>
+            <h2>Capa 4: Formatos</h2>
+            <p>El tipo de contenido que vamos a crear. Para lanzamiento, priorizamos formatos que generen confianza y conexión emocional.</p>
+
+            <div class="grid-3" style="margin-top: 24px;">
+                <div class="card">
+                    <div class="card-title">📱 UGC Testimonial</div>
+                    <div class="card-body">
+                        <p>Creador hablando a cámara sobre su experiencia real con Bloki.</p>
+                        <p><strong>Duración:</strong> 30-60s</p>
+                        <p><strong>Funnel:</strong> TOF/MOF</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🎬 Antes/Después</div>
+                    <div class="card-body">
+                        <p>Transformación visual: screen time antes vs después de usar Bloki.</p>
+                        <p><strong>Duración:</strong> 15-30s</p>
+                        <p><strong>Funnel:</strong> TOF</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">📖 Storytime</div>
+                    <div class="card-body">
+                        <p>Historia personal del momento en que decidieron tomar el control.</p>
+                        <p><strong>Duración:</strong> 45-90s</p>
+                        <p><strong>Funnel:</strong> MOF</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🤔 POV/Meme</div>
+                    <div class="card-body">
+                        <p>Contenido nativo tipo orgánico que no parece ad.</p>
+                        <p><strong>Duración:</strong> 10-20s</p>
+                        <p><strong>Funnel:</strong> TOF</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">📊 Dato Impactante</div>
+                    <div class="card-body">
+                        <p>Estadísticas que generen urgencia o reflexión.</p>
+                        <p><strong>Duración:</strong> 15-30s</p>
+                        <p><strong>Funnel:</strong> TOF</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🆚 Vs Competencia</div>
+                    <div class="card-body">
+                        <p>Por qué Bloki es diferente a otras apps de bienestar digital.</p>
+                        <p><strong>Duración:</strong> 30-45s</p>
+                        <p><strong>Funnel:</strong> BOF</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Briefs específicos -->
+        <section>
+            <h2>Briefs de Video</h2>
+            <p>Los primeros 10 videos que vamos a producir, con brief completo para cada creador.</p>
+
+            <!-- Brief 1 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">El despertar del profesional</div>
+                        <div class="brief-persona">Persona: Profesional Abrumado · Ángulo: Productividad</div>
+                    </div>
+                    <div class="brief-number">01</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Llevo 3 semanas usando esto y mi jefe cree que soy otra persona"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre con el hook mirando a cámara</li>
+                        <li>Cuenta brevemente el problema: "Antes no podía trabajar 30 minutos sin revisar Instagram"</li>
+                        <li>Presenta a Bloki como la solución: "Este pequeño guardián bloquea mis apps durante mis horas de trabajo"</li>
+                        <li>Muestra resultado: Screen time o logro concreto</li>
+                        <li>Cierre: "Si trabajas desde casa y no puedes concentrarte, pruébalo"</li>
+                    </ul>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Qué puede decir</div>
+                    <p>Guardián, protege mi enfoque, sesiones de trabajo profundo, menos distracciones, más productivo</p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Qué NO puede decir</div>
+                    <p>Adicción al celular, castigar, bloqueo forzado, restricción</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">UGC Testimonial</span>
+                    <span class="tag tag-gray">30-45s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 2 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">La cena sin celular</div>
+                        <div class="brief-persona">Persona: Padre/Madre · Ángulo: Presencia Familiar</div>
+                    </div>
+                    <div class="brief-number">02</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Mi hija me dijo 'papi, deja el celular' y me partió el corazón"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre emocional con el hook</li>
+                        <li>Pausa, respira: "Ese día me di cuenta que estaba presente físicamente pero ausente mentalmente"</li>
+                        <li>Presenta a Bloki: "Ahora, de 6 a 9pm mi celular está protegido. Es tiempo de familia"</li>
+                        <li>B-roll de momento familiar (puede ser simulado)</li>
+                        <li>Cierre: "Los momentos no se repiten. Bloki me ayuda a vivirlos"</li>
+                    </ul>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Tipo de creador</div>
+                    <p>Padre o madre joven (28-40), idealmente con hijos visibles en contenido previo</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Storytime emocional</span>
+                    <span class="tag tag-gray">45-60s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 3 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">El scroll de las 2am</div>
+                        <div class="brief-persona">Persona: Insomne Digital · Ángulo: Sueño</div>
+                    </div>
+                    <div class="brief-number">03</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Eran las 2am, estaba en TikTok, y me pregunté: ¿qué estoy haciendo con mi vida?"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Luz tenue, ambiente nocturno para el hook</li>
+                        <li>Describe el problema: "Todas las noches decía 'solo 5 minutos más' y eran 2 horas"</li>
+                        <li>Presenta la solución: "Bloki me bloquea las apps a las 10pm automáticamente"</li>
+                        <li>Resultado: "Ahora duermo 7 horas y me despierto sin alarma"</li>
+                        <li>Cierre: "Si tu celular te roba el sueño, esto lo cambia todo"</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Storytime</span>
+                    <span class="tag tag-gray">45-60s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 4 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">El estudiante que aprobó</div>
+                        <div class="brief-persona">Persona: Estudiante · Ángulo: Productividad</div>
+                    </div>
+                    <div class="brief-number">04</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"POV: Finalmente terminaste esa tarea que llevabas posponiendo 3 días"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre con texto en pantalla (estilo POV trending)</li>
+                        <li>Cara de satisfacción/alivio del creador</li>
+                        <li>Transición rápida: "¿Cómo lo hice? Le puse un guardián a mi celular"</li>
+                        <li>Muestra la app brevemente</li>
+                        <li>Cierre: "Bloki. Porque tu nota no va a subir sola"</li>
+                    </ul>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Tipo de creador</div>
+                    <p>Estudiante universitario (18-25), contenido de lifestyle/estudio, GenZ vibes</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">POV/Meme</span>
+                    <span class="tag tag-gray">15-25s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 5 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">El biohacker digital</div>
+                        <div class="brief-persona">Persona: Atleta Mental · Ángulo: Control</div>
+                    </div>
+                    <div class="brief-number">05</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Optimizo todo: sueño, comida, ejercicio. Mi punto débil era el celular. Ya no"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre mostrando rutina de bienestar (gym, suplementos, tracking)</li>
+                        <li>Problema: "Pero tenía un punto ciego: gastaba 4 horas en el celular"</li>
+                        <li>Solución: "Ahora uso Bloki como parte de mi stack de productividad"</li>
+                        <li>Resultado: "2 horas de screen time, doble de enfoque"</li>
+                        <li>Cierre: "Si optimizas todo menos tu celular, te falta esta pieza"</li>
+                    </ul>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Tipo de creador</div>
+                    <p>Creador de fitness/biohacking, hombre o mujer, 25-40, estética de optimización</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">UGC Testimonial</span>
+                    <span class="tag tag-gray">30-45s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 6 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">El dato que asusta</div>
+                        <div class="brief-persona">Persona: Todas · Ángulo: Tiempo Recuperado</div>
+                    </div>
+                    <div class="brief-number">06</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"El promedio de una persona gasta 4 horas al día en el celular. Son 60 días al año"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre con el dato impactante, tono serio</li>
+                        <li>Contexto: "Eso es 2 meses completos al año. Scrolleando"</li>
+                        <li>Pregunta: "¿Qué harías con 2 meses extra de tu vida?"</li>
+                        <li>Presenta Bloki como solución</li>
+                        <li>Cierre: "No se trata de dejar el celular. Se trata de usarlo cuando TÚ decides"</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Dato Impactante</span>
+                    <span class="tag tag-gray">20-30s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 7 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">Screen time reveal</div>
+                        <div class="brief-persona">Persona: Todas · Ángulo: Transformación</div>
+                    </div>
+                    <div class="brief-number">07</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Mi screen time hace 1 mes vs hoy" + reacción</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre mostrando screen time alto (6-8 horas) con cara de vergüenza/sorpresa</li>
+                        <li>Transición: "Después de usar Bloki por 4 semanas..."</li>
+                        <li>Muestra nuevo screen time (2-3 horas) con cara de satisfacción</li>
+                        <li>Breve mención de qué hace con el tiempo recuperado</li>
+                        <li>Cierre: Link en bio</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Antes/Después</span>
+                    <span class="tag tag-gray">15-25s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 8 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">La pregunta incómoda</div>
+                        <div class="brief-persona">Persona: Ansioso del Scroll · Ángulo: Control Mental</div>
+                    </div>
+                    <div class="brief-number">08</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"¿Cuántas veces desbloqueaste tu celular hoy sin saber para qué?"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre con la pregunta, mirando fijo a cámara</li>
+                        <li>Silencio de 1-2 segundos para incomodar</li>
+                        <li>Continúa: "Ese gesto automático es diseñado. Las apps QUIEREN que seas adicto"</li>
+                        <li>Presenta Bloki: "Esto es tu defensa. Un guardián que protege tu atención"</li>
+                        <li>Cierre confrontacional: "¿Vas a seguir regalando tu tiempo?"</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Confrontacional</span>
+                    <span class="tag tag-gray">25-35s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 9 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">GRWM con propósito</div>
+                        <div class="brief-persona">Persona: Estudiante/Profesional · Ángulo: Rutina</div>
+                    </div>
+                    <div class="brief-number">09</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"GRWM para un día productivo (sin tocar el celular)"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Formato GRWM clásico pero con twist de productividad</li>
+                        <li>Durante la rutina, menciona: "Lo primero que hago es activar mi guardián en Bloki"</li>
+                        <li>Muestra brevemente la app</li>
+                        <li>"Así me aseguro de no caer en el scroll mañanero"</li>
+                        <li>Continúa con el GRWM normal</li>
+                        <li>Cierre: "¿Tú con qué arrancas tu día?"</li>
+                    </ul>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Tipo de creador</div>
+                    <p>Creadora de lifestyle/beauty con audiencia femenina, 20-30 años</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">GRWM/Rutina</span>
+                    <span class="tag tag-gray">45-60s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+
+            <!-- Brief 10 -->
+            <div class="brief-card">
+                <div class="brief-header">
+                    <div>
+                        <div class="brief-title">Por qué no otras apps</div>
+                        <div class="brief-persona">Persona: Todas · Ángulo: Anti-competencia</div>
+                    </div>
+                    <div class="brief-number">10</div>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Hook obligatorio</div>
+                    <p><strong>"Probé 5 apps de bloqueo. Solo una no me hizo sentir castigado"</strong></p>
+                </div>
+
+                <div class="brief-section">
+                    <div class="brief-section-title">Estructura del video</div>
+                    <ul>
+                        <li>Abre con el hook desde la experiencia</li>
+                        <li>Menciona problema con otras apps: "Se sienten como una cárcel digital"</li>
+                        <li>Contrasta: "Bloki es diferente. Es como tener un compañero que te cuida, no que te castiga"</li>
+                        <li>Muestra la estética amigable de la app</li>
+                        <li>Cierre: "Si las otras apps de bienestar digital no te funcionaron, prueba esta"</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <span class="tag tag-green">Vs Competencia</span>
+                    <span class="tag tag-gray">30-45s</span>
+                    <span class="tag tag-gray">Vertical</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creadores -->
+        <section>
+            <h2>Perfil de Creadores</h2>
+            <p>Los tipos de creadores que necesitamos reclutar para ejecutar estos briefs.</p>
+
+            <div class="grid-2" style="margin-top: 24px;">
+                <div class="card">
+                    <div class="card-title">💼 Profesionales Remote</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Emprendedores, freelancers, trabajadores remotos</li>
+                            <li>Contenido de productividad/lifestyle</li>
+                            <li>25-45 años</li>
+                            <li>Aesthetic de home office</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">📚 Estudiantes/Opositores</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Universitarios, estudiantes de máster, opositores</li>
+                            <li>Contenido de estudio/studygram</li>
+                            <li>18-28 años</li>
+                            <li>Vibes GenZ/Millennial joven</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">👨‍👩‍👧 Padres Jóvenes</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Padres/madres con hijos pequeños visibles en contenido</li>
+                            <li>Contenido de familia/parenting</li>
+                            <li>28-42 años</li>
+                            <li>Autenticidad, no perfección</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🏃 Fitness/Biohackers</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Creadores de fitness, bienestar, optimización</li>
+                            <li>Contenido de rutinas/tracking/suplementos</li>
+                            <li>22-40 años</li>
+                            <li>Mindset de mejora continua</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note" style="margin-top: 24px;">
+                <div class="note-title">Rango de precios sugerido</div>
+                <div class="note-body">$150.000 - $300.000 COP por video + producto/acceso a la app. Negociable según alcance del creador.</div>
+            </div>
+        </section>
+
+        <!-- Entregables -->
+        <section>
+            <h2>Entregables Fase 1</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entregable</th>
+                            <th>Cantidad</th>
+                            <th>Formato</th>
+                            <th>Notas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Videos UGC</strong></td>
+                            <td>10</td>
+                            <td>Vertical 9:16</td>
+                            <td>1 por brief</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Versiones editadas</strong></td>
+                            <td>10</td>
+                            <td>15s / 30s / full</td>
+                            <td>3 cortes por video</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Raw files</strong></td>
+                            <td>10</td>
+                            <td>MP4 original</td>
+                            <td>Para re-edición</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Derechos de uso</strong></td>
+                            <td>10</td>
+                            <td>Contrato firmado</td>
+                            <td>Uso perpetuo en ads</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Métricas de éxito -->
+        <section>
+            <h2>Cómo Medimos el Éxito</h2>
+            <p>No se trata de crear videos. Se trata de encontrar los <strong>ángulos ganadores</strong> para escalar.</p>
+
+            <div class="grid-3" style="margin-top: 24px;">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 32px; font-weight: 900; color: var(--green);">Hook Rate</div>
+                    <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">% de personas que ven más de 3 segundos</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 32px; font-weight: 900; color: var(--green);">CTR</div>
+                    <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">Click-through rate del ad</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 32px; font-weight: 900; color: var(--green);">CPA</div>
+                    <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">Costo por adquisición de usuario</div>
+                </div>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>El objetivo:</strong> Identificar los 2-3 ángulos que mejor funcionan para duplicar la inversión en esos y crear variaciones.</p>
+        </section>
+
+        <!-- Siguiente paso -->
+        <section>
+            <h2>Siguiente Paso</h2>
+            <div class="card" style="text-align: center; padding: 40px;">
+                <p style="font-size: 20px; margin-bottom: 16px;"><strong>Aprobar los briefs → Reclutar creadores → Producir Fase 1</strong></p>
+                <p style="color: var(--muted);">Una vez aprobado, arrancamos reclutamiento y producción.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <img class="footer-logo" src="logo-la-real.png" alt="LA REAL">
+            <p class="footer-text">Brief preparado por LA REAL · Julio 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
